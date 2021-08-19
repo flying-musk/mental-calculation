@@ -1,8 +1,8 @@
 <template>
   <div id="mental_calculation" class="m-outer">
     <h1>Mental calculation</h1>
-    <p>Click on the question or press ENTER to get answer.</p>
-    <p>Click on the NEW button or press RIGHT to get new questions.</p>
+    <p>Click on the equation or press ENTER to get answer.</p>
+    <p>Click on NEW or press RIGHT to get new questions.</p>
     <div class="m-main">
       <div v-if="!showAnswer" class="main-content" @click="toggleClick">
         {{ firstNumber }} {{ operator }} {{ secondNumber }}
@@ -10,7 +10,7 @@
       <div v-if="showAnswer" class="main-content" @click="toggleClick">
         {{ answer }}
       </div>
-      <button class="main-button" @click="nextQuestion">&gt;</button>
+      <button class="main-button" @click="nextQuestion">NEW</button>
     </div>
   </div>
 </template>
@@ -76,20 +76,27 @@ export default {
 .m-main {
   min-height: 60vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  gap: 16px;
 }
 .main-content {
-  font-size: 92px;
+  cursor: pointer;
+  flex-grow: 1;
+  align-self: stretch;
+  font-size: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main-button {
-  padding: 12px;
-  font-size: 24px;
+  padding: 72px;
+  font-size: 52px;
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .main-content {
-    font-size: 52px;
+    font-size: 60px;
   }
 }
 </style>
