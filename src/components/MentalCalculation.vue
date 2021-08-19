@@ -32,10 +32,14 @@ export default {
       return this.isTimes ? '*' : '+';
     },
     firstNumber: function () {
-      return Math.trunc(Math.random() * (this.isTimes ? 100 : 1000));
+      let number = Math.trunc(Math.random() * (this.isTimes ? 100 : 1000));
+      const LEAST_NUMBER = this.isTimes ? 11 : 111;
+      return number < LEAST_NUMBER ? number + LEAST_NUMBER : number;
     },
     secondNumber: function () {
-      return Math.trunc(Math.random() * (this.isTimes ? 100 : 1000));
+      let number = Math.trunc(Math.random() * (this.isTimes ? 100 : 1000));
+      const LEAST_NUMBER = this.isTimes ? 11 : 111;
+      return number < LEAST_NUMBER ? number + LEAST_NUMBER : number;
     },
     answer: function () {
       return this.isTimes
